@@ -45,24 +45,22 @@ begin
     reset <= '0';
     wait for periode_clk;
 
-    -- Etape 2 : Activation bla graine jdida (ghadi ybda mn 00000001)
+    
     activation <= '1';
     wait for 5 * periode_clk;
     activation <= '0';
     wait for periode_clk;
 
-    -- Etape 3 : Chargement dyal graine jdida (matalan A5)
+    
     graine <= x"A5";
     charge_graine <= '1';
     wait for periode_clk;
     charge_graine <= '0';
     wait for periode_clk;
 
-    -- Etape 4 : Activation mra khra bach nchoufo le decalage w l'XOR
     activation <= '1';
     wait for 10 * periode_clk;
 
-    -- Fin dyal simulation
     activation <= '0';
     wait;
   end process;
